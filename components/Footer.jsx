@@ -24,12 +24,12 @@ export default function Footer() {
         <footer className='bg-[#E9E9E9] h-96 flex-col flex justify-between w-full p-14 py-10 text-[#6A6A6A] font-light'>
             <section className='w-full flex justify-between gap-10'>
                 {footer.map((item, index) => {
-                    return <div className='w-full flex flex-col gap-2 text-sm'>
+                    return <div key={index} className='w-full flex flex-col gap-2 text-sm'>
                         <h3 className='text-lg font- text-[#99242A]'>{item.title}</h3>
                         {(index === 0 || index === 3)
                             ? <p className='cursor-default'>{item.desc}</p>
-                            : <ul className='flex flex-col gap-2'>{item.items.map(i => {
-                                return <li className='hover:underline w-fit cursor-default'>{i}</li>;
+                            : <ul className='flex flex-col gap-2'>{item.items.map((i, index) => {
+                                return <li key={index} className='hover:underline w-fit cursor-default'>{i}</li>;
                             })}</ul>}
                         {index === 0 && <div className='flex gap-2'>
                             <BiLogoFacebookCircle className='w-6 h-6 hover:text-[#99242A] cursor-pointer' />

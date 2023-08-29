@@ -38,8 +38,8 @@ export default function FeaturedCollection() {
                     <h2 className='text-center text-2xl'>Saari</h2>
                     <div className='flex gap-4'>
                         {
-                            products.saari.map(p => {
-                                return <Product detail={p} />;
+                            products.saari.map((p, index) => {
+                                return <Product key={index} detail={p} />;
                             })
                         }
                     </div>
@@ -48,8 +48,8 @@ export default function FeaturedCollection() {
                     <h2 className='text-center text-2xl'>Kurti & Suit</h2>
                     <div className='flex gap-4'>
                         {
-                            products.kurti.map(p => {
-                                return <Product detail={p} />;
+                            products.kurti.map((p, index) => {
+                                return <Product key={index} detail={p} />;
                             })
                         }
                     </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 export default function Collection() {
@@ -23,10 +24,10 @@ export default function Collection() {
         }]
     return (
         <section className='grid grid-cols-3 gap-5 w-full font-light flex-wrap px-10'>
-            {collections.map(collection => {
-                return <div className='relative w-full rounded text-[#363636] overflow-hidden hover:text-[#99242A] hover:font-normal h-[500px]'>
+            {collections.map((collection, index) => {
+                return <div key={index} className='relative w-full rounded text-[#363636] overflow-hidden hover:text-[#99242A] hover:font-normal h-[500px]'>
                     {/* <div className='absolute w-full h-full bg-black opacity-20'></div> */}
-                    <img src={collection.image} className='w-full hover:scale-105 transition-transform duration-300 h-full' alt="" />
+                    <Image src={collection.image} className='w-full hover:scale-105 transition-transform duration-300 h-full' alt="" />
                     <div className='absolute bottom-0 m-8 flex flex-col gap-2'>
                         <h3 className='text-base text-white font-normal'>{collection.name.toUpperCase()}</h3>
                         <button className='p-3 px-4 text-sm bg-white'>VIEW PRODUCTS</button>
