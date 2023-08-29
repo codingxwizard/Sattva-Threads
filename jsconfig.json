@@ -1,7 +1,19 @@
 {
   "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@styles/*": ["styles/*"],
+      "@components/*": ["components/*"],
+      "@models/*": ["models/*"]
     }
-  }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.jsx",
+    "**/*.cjs",
+    "**/*.mjs",
+  ]
 }
