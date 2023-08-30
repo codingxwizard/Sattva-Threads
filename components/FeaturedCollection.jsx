@@ -32,7 +32,7 @@ export default function FeaturedCollection() {
 
     return (
         <section className='text-[#99242A] font-light items-center flex-col flex gap-5'>
-            <h1 className='text-4xl'>Featured Collections</h1>
+            <h1>Featured Collections</h1>
             <section className='flex w-full gap-8 px-10'>
                 <section className='w-1/2 flex flex-col gap-4'>
                     <h2 className='text-center text-2xl'>Saari</h2>

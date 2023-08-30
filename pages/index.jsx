@@ -1,8 +1,11 @@
 import Background from '@components/Background';
 import Collection from '@components/Collection';
+import Discover from '@components/Discover';
 import FeaturedCollection from '@components/FeaturedCollection';
+import FeaturedProduct from '@components/FeaturedProduct';
 import Footer from '@components/Footer';
 import Navbar from '@components/Navbar';
+import Shop from '@components/Shop';
 import React from 'react';
 
 export default function index() {
@@ -12,6 +15,9 @@ export default function index() {
       <Background />
       <FeaturedCollection />
       <Collection />
+      <Discover />
+      <FeaturedProduct />
+      <Shop />
       <Footer />
     </main>
   )

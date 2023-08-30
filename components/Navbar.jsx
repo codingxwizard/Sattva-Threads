@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
 import { PiUserLight } from 'react-icons/pi'
-import { BsPerson, BsSearch, BsBag } from 'react-icons/bs'
+import { BsSearch, BsBag } from 'react-icons/bs'
 import Image from 'next/image'
 
 export default function Navbar() {
     return (
         <nav className='h-40 z-10 justify-evenly border-b border-white text-white p-2 w-full flex flex-col absolute'>
-            <Image src='Logo.png' className='h-20 mx-auto' alt='Sattva Threads' />
+            <img src='Logo.png' className='h-20 mx-auto' alt='Sattva Threads' />
             <section className='flex justify-evenly'>
                 <div></div>
                 <div className='flex gap-20'>
