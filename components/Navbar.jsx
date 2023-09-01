@@ -3,11 +3,13 @@ import React from 'react'
 import { PiUserLight } from 'react-icons/pi'
 import { BsSearch, BsBag } from 'react-icons/bs'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 export default function Navbar() {
+    const router = useRouter();
     return (
-        <nav className='h-40 z-10 justify-evenly border-b border-white text-white p-2 w-full flex flex-col absolute'>
-            <img src='Logo.png' className='h-20 mx-auto' alt='Sattva Threads' />
+        <nav className={`h-40 z-10 justify-evenly border-b ${!router.pathname.includes('product') ? "text-white border-white" : "text-[#99242A] border-[#99242A]"} p-2 ${!router.pathname.includes('product') && "absolute"} w-full flex flex-col`}>
+            <img onClick={()=> router.push('/')} src={!router.pathname.includes('product') ? '/LogoWhite.svg' : '/LogoRed.svg'} className='cursor-pointer h-20 mx-auto' alt='Sattva Threads' />
             <section className='flex justify-evenly'>
                 <div></div>
                 <div className='flex gap-20'>

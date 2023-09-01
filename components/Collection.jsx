@@ -4,21 +4,27 @@ import React from 'react'
 export default function Collection() {
     const collections = [
         {
+            id: 1,
             name: "Fresh New Arrivals",
             image: "collection1.png"
         }, {
+            id: 2,
             name: "Banarsi Collection",
             image: "collection2.png"
         }, {
+            id: 3,
             name: "Linen Collection",
             image: "collection3.png"
         }, {
+            id: 4,
             name: "Sambalpuri Collection",
             image: "collection4.png"
         }, {
+            id: 5,
             name: "Baluchari Collection",
             image: "collection5.png"
         }, {
+            id: 6,
             name: "Katha Stitch Collection",
             image: "collection6.png"
         }]

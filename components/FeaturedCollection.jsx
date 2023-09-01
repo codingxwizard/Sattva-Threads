@@ -6,11 +6,13 @@ export default function FeaturedCollection() {
     const products = {
         saari: [
             {
+                id: 1,
                 image: "saari1.png",
                 name: "Yellow Woven saree With Delicate Hand Work Detailing",
                 price: 5366
             },
             {
+                id: 2,
                 image: "saari2.png",
                 name: "Fog Beige Woven Zari saree With Delicate Embroidery Detailing",
                 price: 5366
@@ -18,11 +20,13 @@ export default function FeaturedCollection() {
         ],
         kurti: [
             {
+                id: 3,
                 image: "kurti1.png",
                 name: "Fog Beige Woven saree With Embroidery and Hand Work Detailing",
                 price: 4860
             },
             {
+                id: 4,
                 image: "kurti2.png",
                 name: "Beige and Pink Woven saree With Delicate Hand Work Detailing",
                 price: 5366
