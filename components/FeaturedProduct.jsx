@@ -4,7 +4,7 @@ import DropDown from './DropDown';
 
 export default function FeaturedProduct() {
     return (
-        <section className='flex flex-col gap-10 p-10 text-[#99242A] font-light items-center'>
+        <section className='flex flex-col gap-10 p-10 text-primary font-light items-center'>
             <h1>Featured Product</h1>
             <section className='flex gap-5'>
                 <img src="fproduct1.png" className='h-96 object-contain rounded' alt="" />
@@ -16,9 +16,9 @@ export default function FeaturedProduct() {
                     <div className='text-[#6A6A6A] my-2 flex gap-4'>
                         <button>Share</button>
                         <div className='flex gap-2'>
-                            <BiLogoFacebookCircle className='w-5 h-5 hover:text-[#99242A] cursor-pointer' />
-                            <BiLogoInstagramAlt className='w-5 h-5 hover:text-[#99242A] cursor-pointer' />
-                            <BiLogoPinterest className='w-5 h-5 hover:text-[#99242A] cursor-pointer' />
+                            <BiLogoFacebookCircle className='w-5 h-5 hover:text-primary cursor-pointer' />
+                            <BiLogoInstagramAlt className='w-5 h-5 hover:text-primary cursor-pointer' />
+                            <BiLogoPinterest className='w-5 h-5 hover:text-primary cursor-pointer' />
                         </div>
                     </div>
                     <DropDown name="Size" value="S" />

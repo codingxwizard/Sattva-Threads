@@ -35,7 +35,7 @@ export default function FeaturedCollection() {
     }
 
     return (
-        <section className='text-[#99242A] font-light items-center flex-col flex gap-5'>
+        <section className='text-primary font-light items-center flex-col flex gap-5'>
             <h1>Featured Collections</h1>
             <section className='flex w-full gap-8 px-10'>
                 <section className='w-1/2 flex flex-col gap-4'>
@@ -59,7 +59,7 @@ export default function FeaturedCollection() {
                     </div>
                 </section>
             </section>
-            <button className='p-3 px-4 bg-[#99242A] text-white w-fit'>View All Products</button>
+            <button className='p-3 px-4 bg-primary hover:bg-primaryHover text-white w-fit'>View All Products</button>
         </section>
     )
 }
