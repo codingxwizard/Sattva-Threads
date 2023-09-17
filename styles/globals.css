@@ -5,3 +5,11 @@
 h1 {
     @apply text-4xl
 }
+
+th {
+    @apply p-2 border border-slate-300 text-slate-800 font-light cursor-default
+}
+
+td {
+    @apply p-2 w-[12.5%] border border-slate-300 text-center text-lg cursor-default
+}

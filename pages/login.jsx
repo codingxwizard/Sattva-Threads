@@ -40,11 +40,11 @@ export default function login() {
                     <p className='text-right cursor-pointer hover:underline text-secondary'>forgot password?</p>
                     <p className='text-center text-primary'>{mesg}</p>
                     <button type='submit' className='p-2 full rounded text-lg bg-primary hover:bg-primaryHover tracking-wider text-white'>{!isLoader ? 'LOGIN' : <Loader />}</button>
-                    <p className='text-center text-secondary'>Don't have an account? <Link href="/register" className='hover:text-primary hover:underline cursor-pointer'>Create one</Link></p>
+                    <p className='text-center text-secondary'>Don't have an account? <Link href="/signup" className='hover:text-primary hover:underline cursor-pointer'>Create one</Link></p>
                 </section>
-                <div onClick={() => signIn('google')} className='flex items-center gap-3 p-2 pr-3 cursor-pointer rounded bg-blue-500 border border-slate-400'>
-                    <FcGoogle className='w-8 h-8 rounded box-content bg-white p-1' />
-                    <p className='font-normal tracking-wider text-lg text-white'>LOG IN WITH GOOGLE</p>
+                <div onClick={() => signIn('google')} className='flex items-center gap-2 p-2 px-3 cursor-pointer rounded hover:bg-slate-100 border border-slate-400'>
+                    <FcGoogle className='w-8 h-8 rounded box-content' />
+                    <p className='text-lg text-slate-700'>Continue with Google</p>
                 </div>
             </form>
         </Layout>

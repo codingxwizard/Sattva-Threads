@@ -46,6 +46,7 @@ export default function Footer() {
             <section className='text-sm'>
                 <p className='cursor-default'>&#x24B8; Sattva Threads</p>
                 <p className='font-normal hover:underline cursor-pointer'>Created By Coding Wizards</p>
+                <p className='font-normal hover:underline cursor-pointer'>Project By DigiFox</p>
             </section>
         </footer>
     )
