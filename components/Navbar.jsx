@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 export default function Navbar() {
     const router = useRouter();
     const isHome = router.pathname === '/';
+    console.log(isHome)
     return (
         <nav className={`h-40 z-10 justify-evenly border-b ${isHome ? "text-white border-white" : "text-primary border-primary"} p-2 ${isHome && "absolute"} w-full flex flex-col`}>
             <img onClick={()=> router.push('/')} src={isHome ? '/LogoWhite.svg' : '/LogoRed.svg'} className='cursor-pointer h-20 mx-auto' alt='Sattva Threads' />
