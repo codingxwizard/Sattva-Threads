@@ -14,7 +14,7 @@ export default function index() {
       <Navbar />
       <Background />
       <FeaturedCollection />
-      <IoLogoWhatsapp className='fixed z-50 right-0 top-1/2 w-10 h-10 text-green-600 p-1 hover:scale-110 transition-transform rounded mr-5 mb-5 bg-slate-100'/>
+      <IoLogoWhatsapp className='fixed z-50 right-0 bottom-0 w-10 h-10 text-green-600 p-1 hover:scale-110 transition-transform rounded mr-5 mb-5 bg-slate-100'/>
       <Collection />
       <Discover />
       <FeaturedProduct />
