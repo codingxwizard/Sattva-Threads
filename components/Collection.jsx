@@ -1,7 +1,9 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 export default function Collection() {
+    const Router = useRouter();
     const collections = [
         {
             id: 1,
@@ -31,7 +33,7 @@ export default function Collection() {
     return (
         <section className='grid grid-cols-3 gap-5 w-full font-light flex-wrap px-10'>
             {collections.map((collection, index) => {
-                return <div key={index} className='relative w-full  rounded text-[#363636] overflow-hidden hover:text-primary hover:font-normal h-[500px]'>
+                return <div key={index} onClick={() => Router.push(`/collections/${encodeURIComponent(collection.name)}`)} className='relative cursor-pointer w-full  rounded text-[#363636] overflow-hidden hover:text-primary hover:font-normal h-[500px]'>
                     {/* <div className='absolute w-full h-full bg-black opacity-20'></div> */}
                     <img src={collection.image} className='w-full hover:scale-105 transition-transform duration-300 h-full' alt="" />
                     <div className='absolute bottom-0 m-8 flex flex-col gap-2'>

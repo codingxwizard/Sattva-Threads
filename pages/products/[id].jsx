@@ -32,10 +32,21 @@ export default function product() {
             image: "kurti2.png",
             name: "Beige and Pink Woven saree With Delicate Hand Work Detailing",
             price: 5366
+        },
+        {
+            id: 5,
+            image: "shop1.png",
+            name: "Beige Woven Saree With Delicate Hand Work Detailing",
+            price: 5366
+        },
+        {
+            id: 6,
+            image: "fproduct1.png",
+            name: "Fog Beige Woven Saree With Embroidery and Hand Work Detailing",
+            price: 5366
         }
     ]
     const product = products.find(p => p.id.toString() === id);
-    console.log(product)
     return (
         <Layout>
             <section className='my-10 flex justify-center gap-8'>
@@ -99,7 +110,7 @@ export default function product() {
                                 <span className='text-lg'>1</span>
                                 <HiPlus />
                             </div>
-                            <button className='p-2 bg-[#99242A] text-white font-light text-lg tracking-wider'>ADD TO CART</button>
+                            <button className='p-3 hover:bg-primaryHover bg-[#99242A] text-white font-light text-lg tracking-wider'>ADD TO CART</button>
                         </div>
                     </div>
                 </aside>

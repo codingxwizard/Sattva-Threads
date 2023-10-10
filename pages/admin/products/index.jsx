@@ -28,30 +28,30 @@ export default function index() {
         <Layout>
             <section className='p-10 px-14 font-light flex flex-col gap-2'>
                 <h1 className='text-center text-primary'>Products</h1>
-                <p className='text-slate-600 text-center text-lg'>10 Entries</p>
+                <p className='text-slate-600 text-center text-lg'>{products.length} Entries</p>
                 <table className='border mt-5 border-slate-800 w-full rounded'>
                     <thead className='bg-red-50'>
                         <tr>
-                            <th>Images</th>
-                            <th>Name</th>
-                            <th>Offer Price</th>
-                            <th>Type</th>
-                            <th className='w-[6.25%]'>Edit</th>
-                            <th className='w-[6.25%]'>View</th>
-                            <th className='w-[6.25%]'>Remove</th>
+                            <th className='head'>Images</th>
+                            <th className='head'>Name</th>
+                            <th className='head'>Offer Price</th>
+                            <th className='head'>Type</th>
+                            <th className='head'>Edit</th>
+                            <th className='head'>View</th>
+                            <th className='head'>Remove</th>
                         </tr>
                     </thead>
                     <tbody className='text-slate-700'>
                         {!isLoader && products.length !== 0 ? products.map(product => {
                             console.log(product)
                             return <tr key={product.id}>
-                                <td><img src={product.images[0]} className='w-20 h-20 m-auto object-contain' alt="" /></td>
-                                <td>{product.name}</td>
-                                <td>{product.offerPrice}</td>
-                                <td>{product.type}</td>
-                                <td onClick={() => Router.push(`/admin/product/${product.id}`)} className='w-[6.25%]'><PiNotePencilLight className='cursor-pointer w-6 h-6 hover:text-green-700 text-slate-600 m-auto' /></td>
-                                <td className='w-[6.25%]'><PiEyeLight className='cursor-pointer w-6 h-6 hover:text-blue-700 text-slate-600 m-auto' /></td>
-                                <td className='w-[6.25%]'><PiTrashSimpleLight className='cursor-pointer w-6 h-6 hover:text-red-700 text-slate-600 m-auto' /></td>
+                                <td className='tele w-1/5'><img src={product.images[0]} className='w-20 h-20 m-auto object-contain' alt="" /></td>
+                                <td className='tele w-1/5'>{product.name}</td>
+                                <td className='tele w-1/5'>{product.offerPrice}</td>
+                                <td className='tele w-1/5'>{product.type}</td>
+                                <td onClick={() => Router.push(`/admin/product/${product.id}`)} className='w-[6.6%] tele'><PiNotePencilLight className='cursor-pointer w-6 h-6 hover:text-green-700 text-slate-600 m-auto' /></td>
+                                <td className='w-[6.6%] tele'><PiEyeLight className='cursor-pointer w-6 h-6 hover:text-blue-700 text-slate-600 m-auto' /></td>
+                                <td className='w-[6.6%] tele'><PiTrashSimpleLight className='cursor-pointer w-6 h-6 hover:text-red-700 text-slate-600 m-auto' /></td>
                             </tr>;
                         })
                             : <tr></tr>}

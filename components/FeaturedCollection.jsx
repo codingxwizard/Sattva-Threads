@@ -1,7 +1,9 @@
 import React from 'react'
 import Product from './Product';
+import { useRouter } from 'next/router';
 
 export default function FeaturedCollection() {
+    const Router = useRouter();
 
     const products = {
         saari: [
@@ -59,7 +61,7 @@ export default function FeaturedCollection() {
                     </div>
                 </section>
             </section>
-            <button className='p-3 px-4 bg-primary hover:bg-primaryHover text-white w-fit'>View All Products</button>
+            <button onClick={() => Router.push('/products')} className='p-3 px-4 bg-primary hover:bg-primaryHover text-white w-fit'>View All Products</button>
         </section>
     )
 }
