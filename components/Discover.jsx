@@ -41,11 +41,11 @@ export default function Discover() {
     return (
         <section className='w-full flex flex-col gap-10 items-center p-10 pb-16 font-light bg-[#EFEFEF] text-primary'>
             <h1>Discover More</h1>
-            <section ref={containerRef} className='flex items-center overflow-x-auto gap-10'>
-                <img onClick={() => handleItemClick(0)} src="discover1.png" className={`rounded w-3/4 ${0 === currentIndex ? 'scale-125' : 'scale-100'}`} alt="" />
-                <img onClick={() => handleItemClick(1)} src="discover2.png" className={`rounded w-3/4 ${1 === currentIndex ? 'scale-125' : 'scale-100'}`} alt="" />
-                <img onClick={() => handleItemClick(2)} src="collection2.png" className={`rounded w-3/4 ${2 === currentIndex ? 'scale-125' : 'scale-100'}`} alt="" />
-                <img onClick={() => handleItemClick(3)} src="collection4.png" className={`rounded w-3/4 ${3 === currentIndex ? 'scale-125' : 'scale-100'}`} alt="" />
+            <section ref={containerRef} className='flex no-scrollbar items-center overflow-x-auto gap-10'>
+                <img onClick={() => handleItemClick(0)} src="discover1.png" className={`rounded w-3/4 h-96`} alt="" />
+                <img onClick={() => handleItemClick(1)} src="discover2.png" className={`rounded w-3/4 h-96`} alt="" />
+                <img onClick={() => handleItemClick(2)} src="collection2.png" className={`rounded w-3/4 h-96`} alt="" />
+                <img onClick={() => handleItemClick(3)} src="collection4.png" className={`rounded w-3/4 h-96`} alt="" />
             </section>
         </section>
     )
