@@ -17,14 +17,23 @@ model User {
   password String
 }
 
+model Collection {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  image String
+  // Product Product[]
+}
+
 model Product {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  name       String
-  offerPrice Int
-  mrp        Int
+  name       String?
+  // collection   Collection? @relation(fields: [collectionId], references: [id])
+  // collectionId String?
+  offerPrice Int?
+  mrp        Int?
   images     String[]
-  type       String
+  type       String?
   desc       String[]
   care       String[]
-  size       String
+  size       String?
 }

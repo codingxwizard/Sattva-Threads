@@ -20,7 +20,7 @@ export default function product() {
         e.preventDefault();
         setIsLoader(true)
         try {
-            const res = await axios.post('/api/product', { images, name, desc, offerPrice, mrp, type, size, care },);
+            const res = await axios.post('/api/products', { images, name, desc, offerPrice, mrp, type, size, care },);
             console.log(res.data);
             setIsLoader(false);
         } catch (error) {
@@ -43,13 +43,13 @@ export default function product() {
             <section className='flex flex-col p-10 gap-10 items-center font-light'>
                 <h1 className='text-primary'>ADD PRODUCT</h1>
                 <form onSubmit={handleSubmit} className='flex flex-col gap-3 w-[30%]'>
-                    <div className='flex h-20 items-center gap-2'>
-                        <input id='images' className='hidden' accept='.jpg .jpeg .png' type="file" onChange={handleImageChange} multiple />
-                        <label htmlFor="images" className='border border-slate-400 h-full flex items-center px-4 text-lg rounded'>Upload Images</label>
+                    <div className='flex h-20 w-full overflow-x-auto gap-2'>
                         {images.length > 0 && images.map((image, index) => {
                             return <img src={image} key={index} className='h-full w-fit rounded object-contain' alt="" />
                         })}
                     </div>
+                    <input id='images' className='hidden' accept='.jpg, .jpeg, .png' type="file" onChange={handleImageChange} multiple />
+                    <label htmlFor="images" className='border border-primary h-full text-center text-primary p-3 px-4 text-lg rounded'>Upload Images</label>
                     <Input name="Name" input={name} setInput={setName} type="text" />
                     <Input name="Description" input={desc} setInput={setDesc} type="text" />
                     <Input name="Offer Price" input={offerPrice} setInput={setOfferPrice} type="number" />

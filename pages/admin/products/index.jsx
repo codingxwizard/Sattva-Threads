@@ -58,6 +58,7 @@ export default function index() {
                     </tbody>
                 </table>
                 {isLoader && <Loader />}
+                <button onClick={() => Router.push('/admin/products/add')} className='p-2 px-3 rounded bg-primary hover:bg-primaryHover w-fit text-white my-5'>Add Products</button>
             </section>
         </Layout>
     )
