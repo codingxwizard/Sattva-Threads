@@ -11,42 +11,42 @@ export default function collection() {
     {
       id: 1,
       name: "Fresh New Arrivals",
-      image: "collection1.png",
+      images: ["collection1.png"],
       rating: 3,
       offerPrice: 5300,
       price: 10000
     }, {
       id: 2,
       name: "Banarsi Collection",
-      image: "collection2.png",
+      images: ["collection2.png"],
       rating: 3,
       offerPrice: 5300,
       price: 10000
     }, {
       id: 3,
       name: "Linen Collection",
-      image: "collection3.png",
+      images: ["collection3.png"],
       rating: 3,
       offerPrice: 5300,
       price: 10000
     }, {
       id: 4,
       name: "Sambalpuri Collection",
-      image: "collection4.png",
+      images: ["collection4.png"],
       rating: 3,
       offerPrice: 5300,
       price: 10000
     }, {
       id: 5,
       name: "Baluchari Collection",
-      image: "collection5.png",
+      images: ["collection5.png"],
       rating: 3,
       offerPrice: 5300,
       price: 10000
     }, {
       id: 6,
       name: "Katha Stitch Collection",
-      image: "collection6.png",
+      images: ["collection6.png"],
       rating: 3,
       offerPrice: 5300,
       price: 10000

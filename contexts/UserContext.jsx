@@ -1,12 +1,18 @@
 import { createContext, useState } from 'react'
 import axios from 'axios';
+import { useSession, signIn, signOut } from "next-auth/react"
+import { data } from 'autoprefixer';
 
 export const UserContext = createContext(null);
 
 export const UserState = (props) => {
     const [user, setUser] = useState({});
     const [changes, setChanges] = useState(0);
-    const userId =  "efefe";
+    let userId;
+    if (typeof window !== 'undefined') {
+        const { localStorage } = window;
+        userId = localStorage.getItem('userId');
+      }
     const [selectedProducts, setSelectedProducts] = useState([]);
 
     const getUser = async () => {
@@ -15,6 +21,9 @@ export const UserState = (props) => {
             setUser(res.data);
         }
     }
+
+    // const { data } = useSession();
+
     return (
         <UserContext.Provider value={{ user, getUser, setUser, changes, setChanges, userId, selectedProducts, setSelectedProducts }}>
             {props.children}

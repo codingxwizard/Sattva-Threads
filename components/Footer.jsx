@@ -21,8 +21,8 @@ export default function Footer() {
         }
     ]
     return (
-        <footer className='bg-[#E9E9E9] h-96 flex-col flex justify-between w-full p-14 py-10 text-secondary font-light'>
-            <section className='w-full flex justify-between gap-10'>
+        <footer className='bg-[#E9E9E9] min-h-96 flex-col flex justify-between w-full p-14 py-10 text-secondary font-light'>
+            <section className='w-full grid lg:grid-cols-4 md:grid-cols-2 gap-10'>
                 {footer.map((item, index) => {
                     return <div key={index} className='w-full flex flex-col gap-2 text-sm'>
                         <h3 className='text-lg font- text-primary'>{item.title}</h3>

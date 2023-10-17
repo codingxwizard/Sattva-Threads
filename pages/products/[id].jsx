@@ -1,67 +1,46 @@
 import Layout from '@components/Layout';
-import { useRouter } from 'next/router'
-import React from 'react'
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 import { BiLogoInstagramAlt, BiLogoFacebookCircle, BiLogoPinterest } from 'react-icons/bi';
-import { HiMinus, HiPlus } from 'react-icons/hi2'
+import { HiMinus, HiPlus } from 'react-icons/hi2';
 
 
 export default function product() {
     const router = useRouter();
     const { id } = router.query;
-    const products = [
-        {
-            id: 1,
-            image: "saari1.png",
-            name: "Yellow Woven saree With Delicate Hand Work Detailing",
-            price: 5366
-        },
-        {
-            id: 2,
-            image: "saari2.png",
-            name: "Fog Beige Woven Zari saree With Delicate Embroidery Detailing",
-            price: 5366
-        },
-        {
-            id: 3,
-            image: "kurti1.png",
-            name: "Fog Beige Woven saree With Embroidery and Hand Work Detailing",
-            price: 4860
-        },
-        {
-            id: 4,
-            image: "kurti2.png",
-            name: "Beige and Pink Woven saree With Delicate Hand Work Detailing",
-            price: 5366
-        },
-        {
-            id: 5,
-            image: "shop1.png",
-            name: "Beige Woven Saree With Delicate Hand Work Detailing",
-            price: 5366
-        },
-        {
-            id: 6,
-            image: "fproduct1.png",
-            name: "Fog Beige Woven Saree With Embroidery and Hand Work Detailing",
-            price: 5366
+    const [product, setProduct] = useState({ images: [], name: "", offerPrice: "" })
+    const [isLoader, setIsLoader] = useState(true);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await axios.get(`/api/products/${id}`);
+                setProduct(res.data);
+                console.log(res.data)
+                setIsLoader(false)
+            } catch (error) {
+                console.log(error);
+            }
         }
-    ]
-    const product = products.find(p => p.id.toString() === id);
+        id && fetchProducts()
+    }, [])
+
     return (
         <Layout>
-            <section className='my-10 flex justify-center gap-8'>
-                <aside className='w-[10%] flex flex-col gap-2 items-center'>
-                    <img src={"/" + product?.image} className='h-20 w-fit object-contain rounded' alt="" />
-                    <img src={"/" + product?.image} className='h-20 w-fit object-contain rounded' alt="" />
-                    <img src={"/" + product?.image} className='h-20 w-fit object-contain rounded' alt="" />
-                </aside>
+            {!isLoader ? <section className='my-10 flex justify-center gap-8'>
+                {/* <aside className='w-[10%] flex flex-col gap-2 items-center'>
+                    <img src={"/" + product.images[0]} className='h-20 w-fit object-contain rounded' alt="" />
+                    <img src={"/" + product.images[0]} className='h-20 w-fit object-contain rounded' alt="" />
+                    <img src={"/" + product.images[0]} className='h-20 w-fit object-contain rounded' alt="" />
+                </aside> */}
                 <aside className='w-[30%]'>
-                    <img src={"/" + product?.image} className='object-contain rounded w-fit' alt="" />
+                    <img src={"/" + product.images[0]} className='object-contain rounded w-fit' alt="" />
                 </aside>
                 <aside className='w-[30%] flex flex-col gap-10'>
                     <div>
-                        <h3 className='text-[#99242A] text-lg'>{product?.name}</h3>
-                        <p className='text-green-600 text-lg'>&#x20b9;{product?.price}</p>
+                        <h3 className='text-[#99242A] text-lg'>{product.name || "Fog Beige Woven Saree With Embroidery and Hand Work Detailing"}</h3>
+                        <p className='text-green-600 text-lg'>&#x20b9;{product.offerPrice || 1999}</p>
                     </div>
                     <div className='text-sm flex flex-col gap-5'>
                         <h3 className='text-lg text-[#99242A]'>Product will be dispatched in 7-10 Days</h3>
@@ -115,6 +94,53 @@ export default function product() {
                     </div>
                 </aside>
             </section>
+                : <section className='my-10 flex justify-center gap-8'>
+                    <aside className='w-[6%] flex flex-col gap-2 items-center'>
+                        <div className='h-24 bg-slate-200 pulse w-full object-contain rounded' />
+                        <div className='h-24 bg-slate-200 pulse w-full object-contain rounded' />
+                        <div className='h-24 bg-slate-200 pulse w-full object-contain rounded' />
+                        <div className='h-24 bg-slate-200 pulse w-full object-contain rounded' />
+                    </aside>
+                    <div className='w-[30%] h-[400px] bg-slate-200 pulse rounded' />
+                    <aside className='w-[30%] flex flex-col gap-4'>
+                        <div className='h-[30px] w-full bg-slate-200 pulse rounded' />
+                        <div className='text-sm flex w-full flex-col gap-5'>
+                            <div className='h-[20px] w-3/4 bg-slate-200 pulse rounded' />
+                            <div className='flex flex-col w-full gap-2'>
+                                <div className='bg-slate-200 h-4 pulse rounded w-[120px]' />
+                                <ul className='px-5 text-[#6A6A6A] flex flex-col gap-2 w-full font-light'>
+                                    <div className='mr-2 bg-slate-200 pulse rounded w-2/3 h-4' />
+                                    <div className='mr-2 bg-slate-200 pulse rounded w-2/3 h-4' />
+                                    <div className='mr-2 bg-slate-200 pulse rounded w-2/3 h-4' />
+                                    <div className='mr-2 bg-slate-200 pulse rounded w-2/3 h-4' />
+                                </ul>
+                            </div>
+                            <div className='flex flex-col w-full gap-2'>
+                                <div className='bg-slate-200 h-4 pulse rounded w-[120px]' />
+                                <ul className='px-5 text-[#6A6A6A] flex flex-col gap-2 w-full font-light'>
+                                    <div className='mr-2 bg-slate-200 pulse rounded w-2/3 h-4' />
+                                    <div className='mr-2 bg-slate-200 pulse rounded w-2/3 h-4' />
+                                </ul>
+                            </div>
+                            <div className='h-[20px] w-1/4 bg-slate-200 pulse rounded' />
+                            <div className='flex flex-col gap-4 text-base text-[#6A6A6A]'>
+                                <div className='flex justify-between'>
+                                    <div className='h-[20px] w-1/4 bg-slate-200 pulse rounded' />
+                                    <div className='h-[20px] w-1/4 bg-slate-200 pulse rounded' />
+                                </div>
+                                <div className='flex gap-3'>
+                                    <div className='bg-slate-200 pulse rounded w-14 h-14' />
+                                    <div className='bg-slate-200 pulse rounded w-14 h-14' />
+                                    <div className='bg-slate-200 pulse rounded w-14 h-14' />
+                                    <div className='bg-slate-200 pulse rounded w-14 h-14' />
+                                    <div className='bg-slate-200 pulse rounded w-14 h-14' />
+                                </div>
+                                <div className='bg-slate-200 pulse rounded w-40 h-16' />
+                                <div className='bg-slate-200 pulse rounded w-full h-16' />
+                            </div>
+                        </div>
+                    </aside>
+                </section>}
         </Layout>
     )
 }

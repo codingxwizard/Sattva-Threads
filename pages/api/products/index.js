@@ -21,6 +21,7 @@ export default async function handler(req, res) {
         else if (req.method === "POST") {
             const { images, name, desc, offerPrice, mrp, care, type, size } = req.body;
             await prisma.product.create({ data: { images, name, desc, offerPrice: parseInt(offerPrice), mrp: parseInt(mrp), care, type, size } });
+            res.setHeader('Content-Length', "50mb");
             res.status(200).send("Succesfully Stored");
         }
     } catch (error) {

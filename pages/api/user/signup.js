@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
             //Stores user credentials to the database
             user = await prisma.user.create({ data: { email, name, password: newPassword } });
-            res.status(200).send("User created successfully");
+            res.status(200).send(user);
         }
     } catch (error) {
         res.status(500).send(error.message);

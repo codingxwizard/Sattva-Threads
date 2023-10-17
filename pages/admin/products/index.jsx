@@ -16,13 +16,14 @@ export default function index() {
             try {
                 const res = await axios.get('/api/products');
                 setProducts(res.data);
+                console.log(res.data)
                 setIsLoader(false);
             } catch (error) {
                 console.error(error);
             }
         }
-        // fetchProducts();
-    })
+        fetchProducts();
+    }, [])
 
     return (
         <Layout>

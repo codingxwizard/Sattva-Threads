@@ -5,7 +5,7 @@ import { PiEyeLight, PiNotePencilLight, PiTrashSimpleLight } from 'react-icons/p
 import { useRouter } from 'next/router';
 import AdminDropDown from '@components/AdminDropDown';
 export default function index() {
-    const [collections, setCollections] = useState([{ image: "", name: "collection 1"}])
+    const [collections, setCollections] = useState([{ id: 1, image: "", name: "collection 1" }])
     const [isLoader, setIsLoader] = useState(false);
     const Router = useRouter();
 

@@ -6,13 +6,13 @@ export default function Shop() {
     return (
         <section className='p-10 flex flex-col gap-10 items-center font-light text-primary'>
             <h1>Trending</h1>
-            <section className='flex h-96 justify-center gap-8'>
+            <section className='flex md:flex-row flex-col md:h-96 min-h-96 justify-center gap-8'>
                 <img src="shop1.png" className='object-contain rounded' alt="" />
-                <section className='w-[20%] flex flex-col gap-3'>
-                    <img src="shop2.png" className='object-contain h-1/2 w-fit rounded' alt="" />
+                <section className='md:w-[20%] w-full flex flex-col gap-3'>
+                    <img src="shop2.png" className='object-contain h-1/2 md:block hidden w-fit rounded' alt="" />
                     <h2>Beige Woven Saree With Delicate Hand Work Detailing</h2>
                     <p className='text-green-600'>&#x20b9;5,366</p>
-                    <button onClick={() => Router.push('/products/5')} className='text-white bg-primary hover:bg-primaryHover tracking-wider p-3'>VIEW THIS PRODUCT</button>
+                    <button className='text-white bg-primary hover:bg-primaryHover tracking-wider p-3'>VIEW THIS PRODUCT</button>
                 </section>
             </section>
         </section>

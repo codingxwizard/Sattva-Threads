@@ -48,15 +48,15 @@ export default function CartItem({ cartDetails }) {
   }
 
   return (
-    <section ref={currentItem} className='item p-4 rightAppear flex w-full md:h-[200px] h-[150px] items-center gap-4 border-b border-slate-300'>
+    <section ref={currentItem} className='item p-4 rightAppear flex w-full md:h-[200px] h-[150px] gap-4 border-b border-slate-300'>
       <aside className='md:w-[20%] sm:w-[30%] w-[40%] h-full'>
-        <img onClick={handleClick} src={"/"+cartDetails.image} className='cursor-pointer w-full imgLoad h-full object-contain rounded' alt="" />
+        <img onClick={handleClick} src={"/" + cartDetails.images[0]} className='cursor-pointer w-full imgLoad h-full object-contain rounded' alt="" />
       </aside>
       <aside className='flex flex-col md:gap-2 gap-1'>
-        <h3 onClick={handleClick} className='lg:text-2xl gap-16 md:text-lg sm:text-base cursor-pointer text-slate-700'>{cartDetails?.name}</h3>
-        <span className='flex rounded px-1 bg-green-500 sm:text-base text-sm text-white items-center justify-center gap-1 w-fit'>{cartDetails?.rating}<AiFillStar /></span>
+        <h3 onClick={handleClick} className='lg:text-xl gap-16 md:text-lg sm:text-base cursor-pointer text-slate-700'>{cartDetails.name || "Fog Beige Woven Saree With Embroidery and Hand Work Detailing"}</h3>
+        <span className='flex rounded px-1 bg-green-500 sm:text-base text-sm text-white items-center justify-center gap-1 w-fit'>{cartDetails.rating || 4}<AiFillStar /></span>
         <div className='flex gap-2 items-end'>
-          <span className='md:text-lg text-slate-700 font-bold'>&#8377;{quantity * cartDetails?.offerPrice}</span>
+          <span className='md:text-lg text-slate-700 font-bold'>&#8377;{quantity * cartDetails.offerPrice || 1999}</span>
         </div>
         {!(Router.pathname.includes('collection') || Router.pathname.includes('products')) && <div className='flex md:gap-5 gap-3'>
           <div className='flex items-center md:gap-3 gap-2 text-base sm:text-lg md:text-xl'>

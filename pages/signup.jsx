@@ -1,11 +1,12 @@
 import Input from '@components/Input'
 import Layout from '@components/Layout'
 import Loader from '@components/Loader';
+import { UserContext } from '@contexts/UserContext';
 import axios from 'axios';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FcGoogle } from 'react-icons/fc';
 
 
@@ -16,6 +17,7 @@ export default function signup() {
     const [password, setPassword] = useState('');
     const [confirm, setConfirm] = useState('');
     const [mesg, setMesg] = useState('');
+    const { setUser } = useContext(UserContext);
     const router = useRouter();
 
     const handleSubmit = async (e) => {
@@ -31,6 +33,11 @@ export default function signup() {
             }
             else {
                 const res = await axios.post('/api/user/signup', { name, email, password });
+                if (typeof window !== 'undefined') {
+                    const { localStorage } = window;
+                    localStorage.setItem("userId", res.data.id);
+                }
+                setUser(res.data);
             }
             setIsLoader(false);
             router.push('/')
@@ -54,10 +61,10 @@ export default function signup() {
                     <button type='submit' className='p-2 full rounded text-lg bg-primary hover:bg-primaryHover my-2 tracking-wider text-white'>{!isLoader ? 'CREATE ACCOUNT' : <Loader />}</button>
                     <p className='text-center text-secondary'>Already have an account? <Link href="/login" className='hover:text-primary hover:underline cursor-pointer'>login</Link></p>
                 </section>
-                <div onClick={() => signIn('google')} className='flex items-center gap-2 p-2 px-3 cursor-pointer rounded hover:bg-slate-100 border border-slate-400'>
+                {/* <div onClick={() => signIn('google')} className='flex items-center gap-2 p-2 px-3 cursor-pointer rounded hover:bg-slate-100 border border-slate-400'>
                     <FcGoogle className='w-8 h-8 rounded box-content' />
                     <p className='text-lg text-slate-700'>Continue with Google</p>
-                </div>
+                </div> */}
             </form>
         </Layout>
     )

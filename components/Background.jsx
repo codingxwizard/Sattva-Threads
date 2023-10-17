@@ -27,7 +27,7 @@ export default function Background() {
         // <section className='min-h-screen relative'>
         //     <img src="bg1.png" className='absolute w-full h-full' alt="background" />
         // </section>
-        <div className={`lg:min-h-screen relative md:h-72 sm:h-60 overflow-hidden h-52 w-full flex items-center`}>
+        <div className={`lg:min-h-screen relative md:h-[500px] h-[300px] overflow-hidden w-full flex items-center`}>
             {caraousel.map((item, index) => {
                 return <div key={index} className={`min-w-full relative h-full flex flex-col`}>
                     <img ref={e => caraouselRef.current[index] = e} src={`/${item}`} className={`transition-transform duration-1000 object-cover w-full h-full absolute`} alt="" />

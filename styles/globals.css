@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 h1 {
-    @apply text-4xl
+    @apply md:text-4xl text-2xl
 }
 
 .head {
@@ -46,5 +46,21 @@ no-scrollbar{
     to {
         opacity: 0;
         transform: translateY(-20%);
+    }
+}
+
+.pulse{
+    animation: pul 1.5s infinite ease-in-out;
+}
+
+@keyframes pul {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.7;
+    }
+    100%{
+        opacity: 1;
     }
 }

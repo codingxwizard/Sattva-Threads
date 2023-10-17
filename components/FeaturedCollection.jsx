@@ -1,65 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Product from './Product';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 export default function FeaturedCollection() {
     const Router = useRouter();
 
-    const products = {
-        saari: [
-            {
-                id: 1,
-                image: "saari1.png",
-                name: "Yellow Woven saree With Delicate Hand Work Detailing",
-                price: 5366
-            },
-            {
-                id: 2,
-                image: "saari2.png",
-                name: "Fog Beige Woven Zari saree With Delicate Embroidery Detailing",
-                price: 5366
+    const [products, setProducts] = useState([]);
+    const [isLoader, setIsLoader] = useState(true);
+    const loader = [0, 1, 2, 3, 4, 5]
+
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+
+            try {
+                const res = await axios.get('/api/products');
+                setIsLoader(false);
+                console.log("efe")
+                setProducts(res.data);
+
+            } catch (error) {
+
             }
-        ],
-        kurti: [
-            {
-                id: 3,
-                image: "kurti1.png",
-                name: "Fog Beige Woven saree With Embroidery and Hand Work Detailing",
-                price: 4860
-            },
-            {
-                id: 4,
-                image: "kurti2.png",
-                name: "Beige and Pink Woven saree With Delicate Hand Work Detailing",
-                price: 5366
-            }
-        ]
-    }
+        }
+        fetchProducts()
+    })
 
     return (
-        <section className='text-primary font-light items-center flex-col flex gap-5'>
+        <section className='text-primary font-light items-center flex-col flex gap-5 md:px-10 px-4'>
             <h1>Featured Collections</h1>
-            <section className='flex w-full gap-8 px-10'>
-                <section className='w-1/2 flex flex-col gap-4'>
-                    <h2 className='text-center text-2xl'>Saari</h2>
-                    <div className='flex gap-4'>
-                        {
-                            products.saari.map((p, index) => {
-                                return <Product key={index} detail={p} />;
-                            })
-                        }
-                    </div>
-                </section>
-                <section className='w-1/2 flex flex-col gap-4'>
-                    <h2 className='text-center text-2xl'>Kurti & Suit</h2>
-                    <div className='flex gap-4'>
-                        {
-                            products.kurti.map((p, index) => {
-                                return <Product key={index} detail={p} />;
-                            })
-                        }
-                    </div>
-                </section>
+            <section className='grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 w-full gap-8'>
+                {
+                    !isLoader ? products.map((p, index) => {
+                        return index <= 4 && <Product key={index} detail={p} />;
+                    }) : loader.map((index) => {
+                        return <div key={index} className='flex flex-col cursor-pointer items-center gap-2'>
+                            <div className='bg-slate-200 sm:h-[300px] h-[250px] pulse w-full rounded' />
+                            <div className='bg-slate-200 h-[20px] pulse w-3/4'></div>
+                            <div className='bg-slate-200 h-[20px] w-1/2 pulse'></div>
+                        </div>
+                    })
+                }
             </section>
             <button onClick={() => Router.push('/products')} className='p-3 px-4 bg-primary hover:bg-primaryHover text-white w-fit'>View All Products</button>
         </section>
