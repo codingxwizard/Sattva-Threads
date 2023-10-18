@@ -27,10 +27,10 @@ export default function index() {
 
     return (
         <Layout>
-            <section className='p-10 px-14 font-light flex flex-col gap-2'>
+            <section className='p-10 lg:px-14 md:px-10 sm:px-8 px-4 font-light flex flex-col gap-2'>
                 <h1 className='text-center text-primary'>Products</h1>
                 <p className='text-slate-600 text-center text-lg'>{products.length} Entries</p>
-                <table className='border mt-5 border-slate-800 w-full rounded'>
+                <table className='border mt-5 border-slate-800 overflow-scroll rounded'>
                     <thead className='bg-red-50'>
                         <tr>
                             <th className='head'>Images</th>

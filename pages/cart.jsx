@@ -106,7 +106,7 @@ const Cart = () => {
 
     return (
         <Layout>
-            {(isLoader ? <section className='lg:mx-20 min-h-[calc(100vh-200px)] md:mx-10 sm:mx-8 mx-0 my-4 flex md:flex-row flex-col md:gap-4 gap-2'>
+            {(isLoader ? <section className='lg:mx-20 min-h-[calc(100vh-200px)] md:mx-10 sm:mx-8 mx-4 my-4 flex md:flex-row flex-col md:gap-4 gap-2'>
                     <aside className='md:w-[70%] w-full border-red-400 border flex flex-col flex-grow rounded bg-white shadow-[0_0_8px] shadow-slate-300'>
                         {cartItems.length !== 0 ? cartItems.map((item, index) => {
                             return <CartItem key={item._id} cartDetails={item} />;
@@ -166,12 +166,12 @@ const Cart = () => {
               <button type='submit' className='w-full lg:p-2 md:p-1 my-2 bg-blue-500 hover:bg-blue-600 rounded text-white lg:text-lg md:text-md flex justify-center'>{!paymentLoader ? "Continue to Payment" : <TailSpin width={28} height={28} color='white' />}</button>
             </form> */}
                     </aside>
-                    <section className='flex md:hidden sticky items-center justify-between bottom-0 w-full text-slate-700 bg-white shadow-[0_0_8px] lg:p-4 p-3 shadow-slate-300 rounded'>
+                    <section className='flex md:hidden border border-red-400 sticky items-center justify-between bottom-0 w-full text-slate-700 bg-white shadow-[0_0_8px] lg:p-4 p-3 shadow-slate-300 rounded'>
                         <div>
                             <p className='font-bold md:text-lg text-base'>&#8377;{itemDetails.offerPrice + itemDetails.deliveryCharge}</p>
-                            <p className='text-blue-600 cursor-pointer text-sm'>view price details</p>
+                            <p className='text-primary cursor-pointer text-sm'>view price details</p>
                         </div>
-                        <button onClick={handleContinue} className='bg-slate-700 hover:bg-slate-800 h-fit py-2 text-white px-4 rounded md:rounded-md md:text-lg'>Continue</button>
+                        <button onClick={handleContinue} className='bg-primary hover:bg-primaryHover h-fit py-2 text-white px-4 rounded md:rounded-md md:text-lg'>Continue</button>
                     </section>
                 </section> : <Loader />)}
         </Layout>

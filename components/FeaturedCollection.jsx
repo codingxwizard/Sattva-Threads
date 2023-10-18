@@ -24,7 +24,7 @@ export default function FeaturedCollection() {
 
             }
         }
-        fetchProducts()
+        // fetchProducts()
     })
 
     return (

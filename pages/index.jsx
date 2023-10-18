@@ -16,7 +16,7 @@ export default function index() {
           <Background />
           <FeaturedCollection />
           <Collection />
-          <Discover />
+          {/* <Discover /> */}
           <FeaturedProduct />
           <Shop />
         </section>

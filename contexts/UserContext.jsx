@@ -17,8 +17,13 @@ export const UserState = (props) => {
 
     const getUser = async () => {
         if (userId) {
-            const res = await axios.get(`/api/user/${userId}`);
-            setUser(res.data);
+            try {
+                const res = await axios.get(`/api/user/${userId}`);
+                setUser(res.data);
+            } catch (error) {
+                console.error(error);
+            }
+
         }
     }
 

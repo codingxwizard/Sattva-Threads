@@ -28,8 +28,8 @@ export default function index() {
 
     return (
         <Layout>
-            <section className='flex flex-col gap-4 p-14'>
-                <h1 className='font-light text-primary mb-5'>Products</h1>
+            <section className='flex flex-col md:gap-4 gap-2 lg:p-14 md:p-10 sm:p-8 py-6 p-4'>
+                <h1 className='font-light text-primary md:mb-5 mb-2'>Products</h1>
                 <section className='border border-red-400 rounded flex flex-col shadow-[0_0_8px] shadow-slate-200'>
                     {products.map(c => {
                         return !isLoader

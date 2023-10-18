@@ -50,9 +50,9 @@ export default function signup() {
     return (
         <Layout>
             <form onSubmit={handleSubmit} className='flex font-light my-10 gap-2 flex-col items-center'>
-                <h2 className='text-3xl text-primary'>Sign Up</h2>
-                <h4 className='text-secondary'>Please fill in the information below:</h4>
-                <section className='my-5 w-[20%] flex flex-col gap-3'>
+                <h1 className='text-primary'>Sign Up</h1>
+                <h4 className='sm:text-base text-sm text-secondary'>Please fill in the information below:</h4>
+                <section className='my-5 lg:w-[20%] md:w-[30%] sm:w-[40%] w-[80%] flex flex-col gap-3'>
                     <Input type="text" name="Full name" input={name} setInput={setName} />
                     <Input type="text" name="Email" input={email} setInput={setEmail} />
                     <Input type="password" name="Password" input={password} setInput={setPassword} />
