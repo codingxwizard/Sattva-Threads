@@ -10,7 +10,6 @@ import { useRouter } from 'next/router';
 import { UserContext } from '@contexts/UserContext';
 
 export default function login() {
-    const { localStorage } = window;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoader, setIsLoader] = useState(false);
@@ -26,8 +25,10 @@ export default function login() {
         try {
             const res = await axios.post('/api/user/login', { email, password });
             setIsLoader(false);
-            localStorage.setItem('userId', res.data.id)
-            setUser(res.data);
+            if (typeof window !== 'undefined') {
+                const { localStorage } = window;
+                localStorage.setItem("userId", res.data.id);
+            } setUser(res.data);
             router.push('/');
         } catch (error) {
             setMesg(error.response.data)
