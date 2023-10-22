@@ -6,7 +6,6 @@ import React from 'react'
 export default function collection() {
   const { slug } = useRouter().query;
   const heading = String(slug).split('-')
-  console.log(heading)
   const collections = [
     {
       id: 1,

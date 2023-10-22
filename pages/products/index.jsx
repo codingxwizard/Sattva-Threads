@@ -17,8 +17,6 @@ export default function index() {
                 const res = await axios.get('/api/products');
                 setIsLoader(false);
                 setProducts(res.data);
-                console.log(res.data)
-
             } catch (error) {
 
             }

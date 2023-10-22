@@ -15,6 +15,6 @@
     "next-env.d.ts",
     "**/*.jsx",
     "**/*.cjs",
-    "**/*.mjs",
+    "**/*.mjs", "pages/api/backgrounds/[id].js",
   ]
 }

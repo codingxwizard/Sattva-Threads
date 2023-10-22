@@ -11,7 +11,6 @@ import Layout from '@components/Layout';
 const Cart = () => {
     const { user, userId, setSelectedProducts } = useContext(UserContext);
     const { query } = useRouter();
-    console.log(query)
     const [cartItems, setCartItems] = useState([]);
     const [isLoader, setIsLoader] = useState(true);
     const [isDialog, setIsDialog] = useState(false);

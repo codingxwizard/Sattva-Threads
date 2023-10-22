@@ -7,8 +7,8 @@ import { PiEyeLight, PiNotePencilLight, PiTrashSimpleLight } from 'react-icons/p
 
 export default function index() {
 
-    const [products, setProducts] = useState([{ id: 1, images: [], name: 'hello', offerPrice: 454, type: 'saree' }]);
-    const [isLoader, setIsLoader] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [isLoader, setIsLoader] = useState(true);
     const Router = useRouter();
 
     useEffect(() => {
@@ -16,7 +16,6 @@ export default function index() {
             try {
                 const res = await axios.get('/api/products');
                 setProducts(res.data);
-                console.log(res.data)
                 setIsLoader(false);
             } catch (error) {
                 console.error(error);
@@ -43,7 +42,7 @@ export default function index() {
                         </tr>
                     </thead>
                     <tbody className='text-slate-700'>
-                        {!isLoader && products.length !== 0 ? products.map(product => {
+                        {!isLoader && (products.length !== 0 ? products.map(product => {
                             console.log(product)
                             return <tr key={product.id}>
                                 <td className='tele w-1/5'><img src={product.images[0]} className='w-20 h-20 m-auto object-contain' alt="" /></td>
@@ -55,10 +54,10 @@ export default function index() {
                                 <td className='w-[6.6%] tele'><PiTrashSimpleLight className='cursor-pointer w-6 h-6 hover:text-red-700 text-slate-600 m-auto' /></td>
                             </tr>;
                         })
-                            : <tr></tr>}
+                            : <tr></tr>)}
                     </tbody>
                 </table>
-                {isLoader && <Loader />}
+                {isLoader && <Loader h={40} w={40} m={10}/>}
                 <button onClick={() => Router.push('/admin/products/add')} className='p-2 px-3 rounded bg-primary hover:bg-primaryHover w-fit text-white my-5'>Add Products</button>
             </section>
         </Layout>

@@ -39,7 +39,6 @@ export default function CartItem({ cartDetails }) {
   const handleDecrease = async () => {
     try {
       const res = await axios.put(`/user/cart-decrease/${userId}`, { productId: cartDetails._id });
-      console.log(res.data);
       setQuantity(prev => [--prev]);
       setUser({ ...user, cartItems: res.data });
     } catch (error) {
@@ -50,7 +49,7 @@ export default function CartItem({ cartDetails }) {
   return (
     <section ref={currentItem} className='item p-4 rightAppear flex w-full md:h-[200px] h-[150px] gap-4 border-b border-slate-300'>
       <aside className='md:w-[20%] sm:w-[30%] w-[40%] h-full'>
-        <img onClick={handleClick} src={"/" + cartDetails.images[0]} className='cursor-pointer w-full imgLoad h-full object-contain rounded' alt="" />
+        <img onClick={handleClick} src={cartDetails.images[0]} className='cursor-pointer w-full imgLoad h-full object-contain rounded' alt="" />
       </aside>
       <aside className='flex flex-col md:gap-2 gap-1'>
         <h3 onClick={handleClick} className='lg:text-xl gap-16 md:text-lg sm:text-base cursor-pointer text-slate-700'>{cartDetails.name || "Fog Beige Woven Saree With Embroidery and Hand Work Detailing"}</h3>

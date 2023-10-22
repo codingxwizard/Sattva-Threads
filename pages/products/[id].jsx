@@ -17,7 +17,6 @@ export default function product() {
             try {
                 const res = await axios.get(`/api/products/${id}`);
                 setProduct(res.data);
-                console.log(res.data)
                 setIsLoader(false)
             } catch (error) {
                 console.log(error);
@@ -35,7 +34,7 @@ export default function product() {
                     <img src={"/" + product.images[0]} className='h-20 w-fit object-contain rounded' alt="" />
                 </aside> */}
                 <aside className='w-[30%]'>
-                    <img src={"/" + product.images[0]} className='object-contain rounded w-fit' alt="" />
+                    <img src={product.images[0]} className='object-contain rounded w-fit' alt="" />
                 </aside>
                 <aside className='w-[30%] flex flex-col gap-10'>
                     <div>

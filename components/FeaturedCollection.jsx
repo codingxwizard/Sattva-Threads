@@ -17,14 +17,13 @@ export default function FeaturedCollection() {
             try {
                 const res = await axios.get('/api/products');
                 setIsLoader(false);
-                console.log("efe")
                 setProducts(res.data);
 
             } catch (error) {
 
             }
         }
-        // fetchProducts()
+        fetchProducts()
     })
 
     return (
@@ -33,7 +32,7 @@ export default function FeaturedCollection() {
             <section className='grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 w-full gap-8'>
                 {
                     !isLoader ? products.map((p, index) => {
-                        return index <= 4 && <Product key={index} detail={p} />;
+                        return index <= 5 && <Product key={index} detail={p} />;
                     }) : loader.map((index) => {
                         return <div key={index} className='flex flex-col cursor-pointer items-center gap-2'>
                             <div className='bg-slate-200 sm:h-[300px] h-[250px] pulse w-full rounded' />

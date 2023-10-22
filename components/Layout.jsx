@@ -21,7 +21,7 @@ export default function Layout({ children }) {
                 <IoLogoWhatsapp className='fixed z-50 right-0 bottom-0 md:w-12 md:h-12 w-10 h-10 text-green-600 p-2 hover:scale-110 transition-transform rounded md:m-8 m-4 bg-slate-100' />
             </Link>
             {
-                user?.id === "652bea31e4fb056f065e09e3" && <Link href={location ? "/" : "/admin/dashboard"} ><span className='fixed z-50 left-0 bottom-0 text-lg text-red-500 border border-red-500 md:p-3 md:px-4 p-2 px-3 hover:scale-110 transition-transform rounded md:m-8 m-4 bg-red-100'>{location ? "Customer" : "Admin"}</span></Link>
+                user?.id === "6534d3bf4229e2a4886e90d0" && <Link href={location ? "/" : "/admin/dashboard"} ><span className='fixed z-50 left-0 bottom-0 text-lg text-red-500 border border-red-500 md:p-3 md:px-4 p-2 px-3 hover:scale-110 transition-transform rounded md:m-8 m-4 bg-red-100'>{location ? "Customer" : "Admin"}</span></Link>
             }
             <Footer />
         </>

@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 export default async function handler(req, res) {
     try {
         if (req.method === "GET") {
-            const {id} = req.query;
+            const { id } = req.query;
             const products = await prisma.product.findUnique({
                 where: {
                     id

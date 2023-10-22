@@ -33,7 +33,6 @@ export default function index() {
                     </thead>
                     <tbody className='text-slate-700'>
                         {!isLoader && collections.length !== 0 ? collections.map(collection => {
-                            console.log(collection)
                             return <tr key={collection.id}>
                                 <td className='tele'><img src={collection.image} className='w-20 h-20 m-auto object-contain' alt="" /></td>
                                 <td className='tele'>{collection.name}</td>

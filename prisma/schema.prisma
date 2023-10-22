@@ -37,3 +37,8 @@ model Product {
   care       String[]
   size       String?
 }
+
+model Backgrounds {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  image String
+}

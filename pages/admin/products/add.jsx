@@ -21,7 +21,6 @@ export default function product() {
         setIsLoader(true)
         try {
             const res = await axios.post('/api/products', { images, name, desc, offerPrice, mrp, type, size, care },);
-            console.log(res.data);
             setIsLoader(false);
         } catch (error) {
             console.log(error);
@@ -57,7 +56,7 @@ export default function product() {
                     <Input name="Type" input={type} setInput={setType} type="text" />
                     <Input name="Size" input={size} setInput={setSize} type="text" />
                     <Input name="Care" input={care} setInput={setCare} type="text" />
-                    <button type='submit' className='p-2 px-3 rounded text-lg bg-primary hover:bg-primaryHover text-white'>{!isLoader ? 'Save' : <Loader />}</button>
+                    <button type='submit' className='p-2 px-3 rounded text-lg bg-primary hover:bg-primaryHover text-white'>{!isLoader ? 'Save' : <Loader h={30} w={30} m={2} c="red" />}</button>
                 </form>
             </section>
         </Layout>

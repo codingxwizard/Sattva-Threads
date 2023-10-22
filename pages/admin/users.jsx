@@ -1,9 +1,24 @@
 import Layout from '@components/Layout'
-import React, { useState } from 'react'
+import Loader from '@components/Loader';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 export default function users() {
-  const [users, setUsers] = useState([{ id: '1', name: 'Raja Kumar Singh', phone: '9752159633', email: 'rajasgh18@gmail.com' }])
-  const [isLoader, setIsLoader] = useState(false);
+  const [users, setUsers] = useState([])
+  const [isLoader, setIsLoader] = useState(true);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await axios.get('/api/user');
+        setUsers(res.data);
+        setIsLoader(false);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchUsers();
+  }, [])
 
   return (
     <Layout>
@@ -20,8 +35,7 @@ export default function users() {
             </tr>
           </thead>
           <tbody className='text-slate-700'>
-            {!isLoader && users.length !== 0 ? users.map(user => {
-              console.log(user)
+            {!isLoader && (users.length !== 0 ? users.map(user => {
               return <tr key={user.id}>
                 <td className='tele w-1/5'>{user.id}</td>
                 <td className='tele w-1/5'>{user.name}</td>
@@ -29,9 +43,10 @@ export default function users() {
                 <td className='tele w-1/5'>{user.phone}</td>
               </tr>;
             })
-              : <tr></tr>}
+              : <tr></tr>)}
           </tbody>
         </table>
+        {isLoader && <Loader h={40} w={40} m={10} />}
       </section>
     </Layout>
   )
