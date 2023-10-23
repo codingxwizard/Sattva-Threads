@@ -38,9 +38,9 @@ export default function signup() {
                     localStorage.setItem("userId", res.data.id);
                 }
                 setUser(res.data);
+                router.push('/')
             }
             setIsLoader(false);
-            router.push('/')
         } catch (error) {
             setMesg(error.response.data)
             setIsLoader(false);
@@ -58,7 +58,7 @@ export default function signup() {
                     <Input type="password" name="Password" input={password} setInput={setPassword} />
                     <Input type="password" name="Confirm Password" input={confirm} setInput={setConfirm} />
                     <p className='text-center text-primary'>{mesg}</p>
-                    <button type='submit' className='p-2 full rounded text-lg bg-primary hover:bg-primaryHover my-2 tracking-wider text-white'>{!isLoader ? 'CREATE ACCOUNT' : <Loader />}</button>
+                    <button type='submit' className='p-2 full rounded text-lg bg-primary hover:bg-primaryHover my-2 tracking-wider text-white'>{!isLoader ? 'CREATE ACCOUNT' : <Loader h={25} w={25} m={0} c="white" />}</button>
                     <p className='text-center text-secondary'>Already have an account? <Link href="/login" className='hover:text-primary hover:underline cursor-pointer'>login</Link></p>
                 </section>
                 {/* <div onClick={() => signIn('google')} className='flex items-center gap-2 p-2 px-3 cursor-pointer rounded hover:bg-slate-100 border border-slate-400'>

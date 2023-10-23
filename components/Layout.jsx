@@ -10,8 +10,12 @@ export default function Layout({ children }) {
     const location = useRouter().pathname.includes('admin');
     const { user } = useContext(UserContext);
     const { getUser } = useContext(UserContext);
+    const Router = useRouter();
     useEffect(() => {
         getUser();
+        if (location && user.id !== "6534d3bf4229e2a4886e90d0") {
+            Router.push("/");
+        }
     }, []);
     return (
         <>

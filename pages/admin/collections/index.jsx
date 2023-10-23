@@ -43,7 +43,7 @@ export default function index() {
                             : <tr></tr>}
                     </tbody>
                 </table>
-                {isLoader && <Loader />}
+                {isLoader && <Loader h={25} w={25} m={0} c="red" />}
             </section>
         </Layout>
     )

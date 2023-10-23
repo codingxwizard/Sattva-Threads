@@ -45,7 +45,7 @@ export default function login() {
                     <Input type='password' name="Password" input={password} setInput={setPassword} />
                     <p className='text-right cursor-pointer hover:underline text-secondary'>forgot password?</p>
                     <p className='text-center text-primary'>{mesg}</p>
-                    <button type='submit' className='p-2 full rounded text-lg bg-primary hover:bg-primaryHover tracking-wider text-white'>{!isLoader ? 'LOGIN' : <Loader />}</button>
+                    <button type='submit' className='p-2 full rounded text-lg bg-primary hover:bg-primaryHover tracking-wider text-white'>{!isLoader ? 'LOGIN' : <Loader h={25} w={25} m={0} c="white" />}</button>
                     <p className='text-center text-secondary'>Don't have an account? <Link href="/signup" className='hover:text-primary hover:underline cursor-pointer'>Create one</Link></p>
                 </section>
                 {/* <div onClick={() => signIn('google')} className='flex items-center gap-2 p-2 px-3 cursor-pointer rounded hover:bg-slate-100 border border-slate-400'>

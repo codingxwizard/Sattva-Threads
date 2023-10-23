@@ -46,7 +46,7 @@ export default function users() {
               : <tr></tr>)}
           </tbody>
         </table>
-        {isLoader && <Loader h={40} w={40} m={10} />}
+        {isLoader && <Loader h={40} w={40} m={10} c="red"/>}
       </section>
     </Layout>
   )

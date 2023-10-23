@@ -57,7 +57,7 @@ export default function index() {
                             : <tr></tr>)}
                     </tbody>
                 </table>
-                {isLoader && <Loader h={40} w={40} m={10}/>}
+                {isLoader && <Loader h={40} w={40} m={10} c="red" />}
                 <button onClick={() => Router.push('/admin/products/add')} className='p-2 px-3 rounded bg-primary hover:bg-primaryHover w-fit text-white my-5'>Add Products</button>
             </section>
         </Layout>
