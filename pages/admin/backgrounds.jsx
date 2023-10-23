@@ -64,7 +64,7 @@ export default function backgrounds() {
 
     return (
         <Layout>
-            <section className='lg:p-14 md:p-10 sm:p-8 p-4 flex flex-col gap-2 mx-auto md:w-3/4 w-full'>
+            <section className='lg:p-14 md:p-10 sm:p-8 p-4 flex flex-col gap-2 mx-auto lg:w-3/4 w-full'>
                 <h1 className='text-center text-primary'>Backgrounds</h1>
                 <p className='text-center text-slate-600 text-lg'>{backgrounds.length} Entries</p>
                 {isDialog && <DialogBox setIsDialog={setIsDialog} text={text} />}
