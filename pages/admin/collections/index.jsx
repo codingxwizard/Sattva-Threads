@@ -1,3 +1,4 @@
+'use client';
 import Layout from '@components/Layout'
 import { useState } from 'react';
 import Loader from '@components/Loader';

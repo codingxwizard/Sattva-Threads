@@ -1,3 +1,4 @@
+'use client';
 import Input from '@components/Input'
 import Layout from '@components/Layout'
 import Loader from '@components/Loader';

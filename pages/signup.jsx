@@ -1,9 +1,9 @@
+'use client';
 import Input from '@components/Input'
 import Layout from '@components/Layout'
 import Loader from '@components/Loader';
 import { UserContext } from '@contexts/UserContext';
 import axios from 'axios';
-import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext, useState } from 'react'

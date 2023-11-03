@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import { TailSpin } from 'react-loader-spinner'
 export default function Loader({ w, h, m, c }) {

@@ -1,3 +1,4 @@
+'use client';
 import CartItem from '@components/CartItem';
 import Layout from '@components/Layout'
 import axios from 'axios';

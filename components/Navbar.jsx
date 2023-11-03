@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link'
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { PiUserLight } from 'react-icons/pi'

@@ -1,8 +1,8 @@
+'use client';
 import Input from '@components/Input'
 import Layout from '@components/Layout'
 import Link from 'next/link';
 import React, { useContext, useState } from 'react'
-import { useSession, signIn, signOut } from "next-auth/react"
 import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import Loader from '@components/Loader';
@@ -16,7 +16,6 @@ export default function login() {
     const [mesg, setMesg] = useState('');
     const router = useRouter();
     const { setUser } = useContext(UserContext);
-    const { data: session } = useSession();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +34,7 @@ export default function login() {
             setIsLoader(false);
         }
     }
-    return (
+    return (    
         <Layout>
             <form onSubmit={handleSubmit} className='flex font-light my-10 gap-2 flex-col items-center'>
                 <h1 className='text-primary'>Login</h1>

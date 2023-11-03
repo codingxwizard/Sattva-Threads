@@ -1,3 +1,4 @@
+'use client';
 import Background from '@components/Background';
 import Collection from '@components/Collection';
 import Discover from '@components/Discover';

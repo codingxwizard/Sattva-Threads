@@ -1,3 +1,4 @@
+'use client';
 import Layout from '@components/Layout';
 import axios from 'axios';
 import { useRouter } from 'next/router';

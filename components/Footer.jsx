@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import { BiLogoInstagramAlt, BiLogoFacebookCircle, BiLogoPinterest } from 'react-icons/bi';
 

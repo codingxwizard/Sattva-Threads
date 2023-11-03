@@ -1,3 +1,4 @@
+'use client';
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@contexts/UserContext';
 import CartItem from '@components/CartItem';

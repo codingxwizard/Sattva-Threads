@@ -1,3 +1,4 @@
+'use client';
 import axios from 'axios';
 import React, { useContext, useRef, useState } from 'react'
 import { AiFillStar } from 'react-icons/ai';

@@ -1,3 +1,4 @@
+'use client';
 import { createContext, useState } from 'react'
 import axios from 'axios';
 import { useSession, signIn, signOut } from "next-auth/react"
