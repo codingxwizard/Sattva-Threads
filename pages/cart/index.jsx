@@ -90,7 +90,8 @@ const Cart = () => {
     }, [])
 
     const handleContinue = () => {
-        if (user._id) {
+        console.log(user)
+        if (user.id) {
             if (cartItems.length === 0) {
                 setText("Please add items to your cart!");
                 setIsDialog(true);
