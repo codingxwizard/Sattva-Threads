@@ -5,7 +5,7 @@ import CartItem from '@components/CartItem';
 import { TailSpin } from 'react-loader-spinner';
 import axios from 'axios';
 import DialogBox from '@components/DialogBox';
-import Loader from '../components/Loader';
+import Loader from '@components/Loader';
 import Router, { useRouter } from 'next/router';
 import Layout from '@components/Layout';
 
