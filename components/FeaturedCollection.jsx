@@ -36,7 +36,7 @@ export default function FeaturedCollection() {
     }
     
     const products = result.data;
-    console.log(products[0])
+
     return (
         <section className='flex flex-col gap-5 items-center px-4 font-light text-primary md:px-10'>
             <h1>Featured Collections</h1>
