@@ -81,7 +81,7 @@ export default function backgrounds() {
                     }
                     return <div key={index} className='flex sm:flex-row sm:w-full w-fit m-auto flex-col h-[200px] my-4 sm:gap-4 gap-2 object-contain items-center border border-slate-400 rounded md:p-3 p-2 md:px-4 justify-between'>
                         {(background.image)
-                            ? <img src={background.image} className='sm:h-full h-[75%] w-fit rounded' alt="" />
+                            ? <img src={background.image} className='sm:h-full h-[75%] w-fit object-contain object-left rounded' alt="" />
                             : <div className='flex w-1/2 rounded items-center justify-center text-slate-700 text-lg'>
                                 No Image
                             </div>}

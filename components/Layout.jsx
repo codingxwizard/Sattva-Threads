@@ -8,6 +8,7 @@ import { IoLogoWhatsapp } from 'react-icons/io';
 import { UserContext } from '@contexts/UserContext';
 
 export default function Layout({ children }) {
+
     const location = useRouter().pathname.includes('admin');
     const { user } = useContext(UserContext);
     const { getUser } = useContext(UserContext);
@@ -18,11 +19,12 @@ export default function Layout({ children }) {
             Router.push("/");
         }
     }, []);
+
     return (
         <>
             <Navbar />
             <main className='min-h-[calc(100vh-10rem)]'>{children}</main>
-            <Link href="https://wa.me/9926685773?text=hi">
+            <Link href="https://wa.me/9958257547">
                 <IoLogoWhatsapp className='fixed z-50 right-0 bottom-0 md:w-12 md:h-12 w-10 h-10 text-green-600 p-2 hover:scale-110 transition-transform rounded md:m-8 m-4 bg-slate-100' />
             </Link>
             {

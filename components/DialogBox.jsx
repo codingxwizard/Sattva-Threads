@@ -24,4 +24,4 @@ const DialogBox = ({ setIsDialog, text }) => {
     </div>
   )
 }
-export default DialogBox
+export default DialogBox;

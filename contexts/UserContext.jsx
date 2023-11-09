@@ -1,6 +1,7 @@
 'use client';
 import { createContext, useState } from 'react'
 import axios from 'axios';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { data } from 'autoprefixer';
 
@@ -13,7 +14,7 @@ export const UserState = (props) => {
     if (typeof window !== 'undefined') {
         const { localStorage } = window;
         userId = localStorage.getItem('userId');
-      }
+    }
     const [selectedProducts, setSelectedProducts] = useState([]);
 
     const getUser = async () => {
@@ -27,6 +28,7 @@ export const UserState = (props) => {
 
         }
     }
+
 
     // const { data } = useSession();
 

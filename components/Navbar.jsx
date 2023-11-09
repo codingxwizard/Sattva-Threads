@@ -71,7 +71,7 @@ export default function Navbar() {
                                 <div className={`border-b-2 w-6 border-inherit rounded-full ease-in-out transition-all relative duration-200 ${isOpen1 ? "-rotate-[45Deg] bottom-2" : "bottom-0"}`} />
                             </div>
                             {isOpen1 && <div ref={dropDownBoxRef1} className='absolute border border-red-500 px-3 w-[120px] right-0 text-sm drop-down-appear text-slate-600 bg-white flex flex-col gap-2 rounded shadow-[0_0_10px_0] shadow-slate-500 mt-8 py-2'>
-                                {user?.id && <span className='flex items-center text-red-600 underline transition-all duration-600 gap-1'>{user.name}</span>}
+                                {/* {user?.id && <span className='flex items-center text-red-600 underline transition-all duration-600 gap-1'>{user.name}</span>} */}
                                 <Link href="/admin/dashboard">Dashboard</Link>
                                 <Link href="/admin/users">Users</Link>
                                 <Link href="/admin/products">Products</Link>
@@ -81,7 +81,7 @@ export default function Navbar() {
                         </div>
                     </div>
                     : <>
-                        <div className='lg:flex hidden text-white underline'>{user?.name}</div>
+                        <div className={`lg:flex hidden ${isHome ? "text-white" : "text-primary"} underline`}>{user?.name}</div>
                         <div className='lg:flex hidden gap-16'>
                             <Link href="/collections/new-arrivals">New Arrivals</Link>
                             <Link href="/collections/saree">Saree</Link>
@@ -101,7 +101,7 @@ export default function Navbar() {
                                     <div className={`border-b-2 w-6 border-inherit rounded-full ease-in-out transition-all relative duration-200 ${isOpen1 ? "-rotate-[45Deg] bottom-2" : "bottom-0"}`} />
                                 </div>
                                 {isOpen1 && <div ref={dropDownBoxRef1} className='absolute border border-red-500 px-3 w-[120px] right-0 text-sm drop-down-appear text-slate-600 bg-white flex flex-col gap-2 rounded shadow-[0_0_10px_0] shadow-slate-500 mt-8 py-2'>
-                                    {user?.id && <span className='flex items-center text-red-600 underline transition-all duration-600 gap-1'>{user.name}</span>}
+                                    {user?.id && <span className={`flex items-center text-red-600 underline transition-all duration-600 gap-1`}>{user.name}</span>}
                                     <Link href="/collections/new-arrivals">New Arrivals</Link>
                                     <Link href="/collections/saree">Saree</Link>
                                     <Link href="/collections/kurta">Kurta</Link>

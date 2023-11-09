@@ -8,52 +8,57 @@ import DialogBox from '@components/DialogBox';
 import Loader from '@components/Loader';
 import Router, { useRouter } from 'next/router';
 import Layout from '@components/Layout';
+import { useQuery } from '@tanstack/react-query';
 
 const Cart = () => {
     const { user, userId, setSelectedProducts } = useContext(UserContext);
     const { query } = useRouter();
     const [cartItems, setCartItems] = useState([]);
-    const [isLoader, setIsLoader] = useState(true);
     const [isDialog, setIsDialog] = useState(false);
     const [paymentLoader, setPaymentLoader] = useState(false);
     const [itemDetails, setItemDetails] = useState({ offerPrice: 0, mrp: 0, discount: 0, deliveryCharge: 0 });
     const [orderCredentials, setorderCredentials] = useState({ name: user?.name, email: user?.email, city: '', postalCode: '', streetAddress: '', country: '' });
     const [text, setText] = useState('');
 
-    useEffect(() => {
-        const fetchCartItems = async () => {
-            try {
-                const res = await axios.post('/user/cart-items', { ids: user.cartItems });
-                setCartItems(res.data);
-                setIsLoader(false);
-                setItemDetails(prev => {
-                    let d = { ...prev };
-                    d.offerPrice = 0;
-                    d.mrp = 0;
-                    d.discount = 0;
-                    d.deliveryCharge = 0;
-                    res.data.forEach(item => {
-                        const q = user.cartItems?.filter(i => i === item._id).length;
-                        d.offerPrice += q * item.offerPrice
-                        d.mrp += item.mrp;
-                        d.discount += item.mrp - item.offerPrice;
-                        d.deliveryCharge += item.deliveryCharge;
-                    })
-                    return d
-                })
-                const productsEle = document.getElementsByClassName('rightAppear');
-                Array.from(productsEle).forEach((product, index) => {
-                    product.style.display = 'flex';
-                    const delay = (index + 1) * 150;
-                    product.style.animation = `appearRight ${delay}ms ease-in-out`;
-                });
-            } catch (error) {
-                console.error(error);
-            }
+    const fetchCartItems = async () => {
+        if (!userId) {
+            return [];
         }
-        // fetchCartItems();
-    }, [user])
+        try {
+            const res = await axios.get(`/api/user/cart/${userId}`,);
+            return res.data;
 
+            // const productsEle = document.getElementsByClassName('rightAppear');
+            // Array.from(productsEle).forEach((product, index) => {
+            //     product.style.display = 'flex';
+            //     const delay = (index + 1) * 150;
+            //     product.style.animation = `appearRight ${delay}ms ease-in-out`;
+            // });
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const { isLoading, data } = useQuery(['cart'], fetchCartItems);
+
+    useEffect(() => {
+        data && setCartItems(data);
+        data && setItemDetails(prev => {
+            let d = { ...prev };
+            d.offerPrice = 0;
+            d.mrp = 0;
+            d.discount = 0;
+            d.deliveryCharge = 0;
+            data.forEach(item => {
+                const q = user.cartItems?.filter(i => i === item._id).length;
+                d.offerPrice += q * item.offerPrice
+                d.mrp += item.mrp;
+                d.discount += item.mrp - item.offerPrice;
+                d.deliveryCharge += item.deliveryCharge;
+            })
+            return d
+        })
+    }, [data])
     const handleOrderChange = (e) => {
         setorderCredentials({ ...orderCredentials, [e.target.name]: e.target.value });
     }
@@ -72,32 +77,31 @@ const Cart = () => {
         }
     }
 
-    useEffect(() => {
-        if (query === '?success=1') {
-            const clearCart = async () => {
-                try {
-                    const res = await axios.post('/user/cart-clear', { userId });
-                    console.log(res.data);
-                } catch (error) {
-                    console.error(error);
-                }
-            }
-            clearCart();
-            setTimeout(() => {
-                Router.push('/');
-            }, 5000);
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (query === '?success=1') {
+    //         const clearCart = async () => {
+    //             try {
+    //                 const res = await axios.post('/user/cart-clear', { userId });
+    //                 console.log(res.data);
+    //             } catch (error) {
+    //                 console.error(error);
+    //             }
+    //         }
+    //         clearCart();
+    //         setTimeout(() => {
+    //             Router.push('/');
+    //         }, 5000);
+    //     }
+    // }, [])
 
     const handleContinue = () => {
-        console.log(user)
         if (user.id) {
             if (cartItems.length === 0) {
                 setText("Please add items to your cart!");
                 setIsDialog(true);
             } else {
                 setSelectedProducts(cartItems)
-                Router.push('/address');
+                Router.push('/cart/address');
             }
         } else {
             setText('Please Login First!')
@@ -107,10 +111,10 @@ const Cart = () => {
 
     return (
         <Layout>
-            {(isLoader ? <section className='lg:mx-20 min-h-[calc(100vh-200px)] md:mx-10 sm:mx-8 mx-4 my-4 flex md:flex-row flex-col md:gap-4 gap-2'>
+            {(!isLoading ? <section className='lg:mx-20 min-h-[calc(100vh-200px)] md:mx-10 sm:mx-8 mx-4 my-4 flex md:flex-row flex-col md:gap-4 gap-2'>
                 <aside className='md:w-[70%] w-full border-red-400 border flex flex-col flex-grow rounded bg-white shadow-[0_0_8px] shadow-slate-300'>
                     {cartItems.length !== 0 ? cartItems.map((item, index) => {
-                        return <CartItem key={item._id} cartDetails={item} />;
+                        return <CartItem key={item.id} cartDetails={item} />;
                     }) : <div className='relative flex justify-center items-center p-10 w-full text-center flex-grow text-lg text-slate-700'>
                         <h1 className='text-xl'>Your Cart is Empty</h1>
                         {/* <img src="/assets/svgs/cart.svg" className='absolute z-0 rounded h-full object-cover w-full' alt="" /> */}
@@ -169,12 +173,12 @@ const Cart = () => {
                 </aside>
                 <section className='flex md:hidden border border-red-400 sticky items-center justify-between bottom-0 w-full text-slate-700 bg-white shadow-[0_0_8px] lg:p-4 p-3 shadow-slate-300 rounded'>
                     <div>
-                        <p className='font-bold md:text-lg text-base'>&#8377;{itemDetails.offerPrice + itemDetails.deliveryCharge}</p>
+                        <p className='font-bold m- md:text-lg text-base'>&#8377;{itemDetails.offerPrice + itemDetails.deliveryCharge}</p>
                         <p className='text-primary cursor-pointer text-sm'>view price details</p>
                     </div>
                     <button onClick={handleContinue} className='bg-primary hover:bg-primaryHover h-fit py-2 text-white px-4 rounded md:rounded-md md:text-lg'>Continue</button>
                 </section>
-            </section> : <Loader />)}
+            </section> : <Loader m={10} c="red" h={50} w={50} />)}
         </Layout>
     )
 }
