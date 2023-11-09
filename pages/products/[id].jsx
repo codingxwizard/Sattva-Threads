@@ -33,15 +33,18 @@ export default function product() {
     }, [data])
 
     const handleCart = async () => {
+        if (!userId) {
+            setText("Please Login first");
+            setIsDialog(true);
+            return;
+        }
         let data;
         setUser(user => {
-            console.log(user);
             user.cartItems.push(id);
             data = user;
             return user;
         })
         try {
-            console.log(data);
             const res = await axios.put(`/api/user/cart/${userId}`, data);
             setText("Product Added to Cart");
             setIsDialog(true);
